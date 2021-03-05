@@ -80,6 +80,20 @@ class Cards:
             number, name = self.pick_a_card(i)
             self.print_card(number, self.symbol[name])
 
+    def pop_card(self):
+        return self.deck.pop()
+
+    def pop_all(self):
+
+        # Display all cards
+
+        print("You got:")
+        for i in range(len(self.deck)):
+            card = self.pop_card()
+            number = card[0]
+            name = card[1]
+            self.print_card(number, self.symbol[name])
+
 class Test:
     def __init__(self):
         self.pack = Cards()
@@ -129,4 +143,4 @@ class Test:
         self.pack.overhand_shuffle(2, 30, 5)
         self.pack.overhand_shuffle(3, 40, 2)
         self.pack.riffle_shuffle(1, 10, 3, True)
-        self.pack.get_all()
+        self.pack.pop_all()
